@@ -16,6 +16,19 @@ jobs:
       packages: write
 
     steps:
+      # --- NEW STEP: FREE UP DISK SPACE ---
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # Free up space by removing unnecessary tools
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
